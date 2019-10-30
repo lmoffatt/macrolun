@@ -1,8 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
-
-project(macrolun LANGUAGES CXX)
-
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+include_directories( quimulun/ )
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_executable(macrolun main.cpp)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_VERBOSE_MAKEFILE ON)
+file(GLOB source_files "*.h" "*.cpp")
+set (CMAKE_CXX_FLAGS "-ftemplate-backtrace-limit=0")
+project(macrolun LANGUAGES CXX)
+add_compile_options(-Wall -Wextra -Werror=return-type -std=c++17)
+add_executable(macrolun ${source_files})
